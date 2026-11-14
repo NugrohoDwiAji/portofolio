@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #0f172a;
+  --color-primary-dark: #020617;
+  --color-primary-light: #334155;
+  --color-dark: #0f172a;
+  --color-secondary: #475569;
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter);
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  html:not(.dark) {
+    color-scheme: light;
+  }
+}
+
+/* Custom Hamburger Styles */
+.hamburger-line {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  height: 2px;
+  width: 28px;
+  background-color: #0f172a;
+  transition: all 0.3s ease-in-out;
+}
+
+.dark .hamburger-line {
+  background-color: #f8fafc;
+}
+
+.hamburger-active > span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger-active > span:nth-child(2) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
